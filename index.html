@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>South Texas Shine Mobile Detailing</title>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Sticky Mobile Call Bar -->
+<div class="callbar">
+  <a href="tel:+12105199030">📞 Call</a>
+  <a href="sms:+12105199030">💬 Text</a>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>We Bring The Shine To You</h1>
+    <p>Mobile Car Detailing in Falls City & Surrounding Areas</p>
+    <a href="tel:+12105199030" class="cta">Get A Fast Quote</a>
+    <div class="rating">⭐ 5.0 Local Rated Service</div>
+  </div>
+</header>
+
+<!-- PRICE ESTIMATOR -->
+<section class="price-estimator">
+  <h2>Estimate Your Detail</h2>
+  <div class="estimator-form">
+    <select id="vehicle">
+      <option value="">Select Vehicle</option>
+      <option value="car">Car</option>
+      <option value="truck">Truck</option>
+      <option value="suv">SUV</option>
+    </select>
+    <select id="service">
+      <option value="">Select Service</option>
+      <option value="full">Full Detail</option>
+      <option value="interior">Interior</option>
+      <option value="exterior">Exterior</option>
+    </select>
+    <select id="condition">
+      <option value="">Condition</option>
+      <option value="light">Light</option>
+      <option value="medium">Medium</option>
+      <option value="heavy">Heavy</option>
+    </select>
+    <button onclick="calculatePrice()">Get Price</button>
+    <div class="price-output" id="price-output"></div>
+  </div>
+</section>
+
+<!-- SERVICE AREA CHECKER -->
+<section class="service-area">
+  <h2>Check If We Service Your Area</h2>
+  <input type="text" id="zip-input" placeholder="Enter ZIP Code">
+  <button onclick="checkZip()">Check</button>
+  <div id="zip-output"></div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section class="gallery">
+  <h2>Before & After Gallery</h2>
+  <div class="photo-grid">
+    <img src="https://images.unsplash.com/photo-1618401478233-b8c2b9e1dcf2?q=80&w=800&auto=format&fit=crop" alt="Before">
+    <img src="https://images.unsplash.com/photo-1618401478233-5b8a5ed8a57f?q=80&w=800&auto=format&fit=crop" alt="After">
+    <img src="https://images.unsplash.com/photo-1583267746340-1a1c1827c1b2?q=80&w=800&auto=format&fit=crop" alt="Interior">
+    <img src="https://images.unsplash.com/photo-1592878891412-95bde4b62d91?q=80&w=800&auto=format&fit=crop" alt="Exterior">
+  </div>
+</section>
+
+<!-- PACKAGES / WHAT'S INCLUDED -->
+<section class="services">
+<h2>Detail Packages & What's Included</h2>
+<div class="cards">
+  <div class="card highlight">
+    <h3>Full Detail — $120</h3>
+    <ul>
+      <li>Vacuum carpets & seats</li>
+      <li>Wipe dashboards & panels</li>
+      <li>Windows cleaned inside & out</li>
+      <li>Hand wash & tire shine</li>
+      <li>Odor removal & stain treatment</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Interior Detail — $80</h3>
+    <ul>
+      <li>Deep clean seats, carpets, panels</li>
+      <li>Dashboard & vents wipe down</li>
+      <li>Windows cleaned inside</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Exterior Detail — $50</h3>
+    <ul>
+      <li>Hand wash & polish</li>
+      <li>Tire shine & trim restoration</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- PREPARATION INSTRUCTIONS -->
+<section class="prep">
+  <h2>Before Your Appointment</h2>
+  <ul>
+    <li>Remove personal items from vehicle</li>
+    <li>Provide water access if needed</li>
+    <li>Unlock vehicle for detailing</li>
+  </ul>
+</section>
+
+<!-- WEATHER POLICY -->
+<section class="weather">
+  <h2>Weather Policy</h2>
+  <p>Appointments are rescheduled at no charge in case of rain.</p>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq">
+<h2>Frequently Asked Questions</h2>
+<div class="accordion">
+  <button class="accordion-btn">How long does a full detail take?</button>
+  <div class="panel">Full detail usually takes 2–3 hours depending on vehicle size.</div>
+  <button class="accordion-btn">Do you bring water and power?</button>
+  <div class="panel">Yes, we bring all necessary equipment to your location.</div>
+  <button class="accordion-btn">Can you remove tough stains?</button>
+  <div class="panel">We handle most stains, with professional products and techniques.</div>
+  <button class="accordion-btn">Do you travel outside Falls City?</button>
+  <div class="panel">We service surrounding areas — contact us if your ZIP is not listed.</div>
+  <button class="accordion-btn">Can I book multiple vehicles?</button>
+  <div class="panel">Yes! We offer fleet or multiple vehicle services.</div>
+</div>
+</section>
+
+<!-- TEMPORARY DISCOUNT -->
+<section class="promo">
+<h2>Limited Time Offer!</h2>
+<p>Get $20 off Full Detail this month!</p>
+<div id="countdown"></div>
+</section>
+
+<!-- REVIEW SECTION -->
+<section class="review-cta">
+<h2>Love Your Detail?</h2>
+<p>Your review helps local customers find us!</p>
+<a class="review-btn" href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID" target="_blank">Leave a Google Review</a>
+</section>
+
+<!-- BOOKING REQUEST -->
+<section class="booking">
+<h2>Book Your Detail</h2>
+<form onsubmit="sendBooking(); return false;">
+<input type="text" placeholder="Your Name" required>
+<input type="text" placeholder="Vehicle Type" required>
+<input type="tel" placeholder="Phone Number" required>
+<input type="text" placeholder="Preferred Date/Time" required>
+<button type="submit">Request Detail</button>
+</form>
+</section>
+
+<footer>
+<p>South Texas Shine Mobile Detailing • Falls City, Texas • (210) 519-9030</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
